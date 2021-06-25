@@ -11,7 +11,7 @@
 
     vault login vault-plaintext-root-token
 
-    vault kv put secret/vaultdemo2 demo.username=demouser demo.password=demovault demo.url=notyetset dbusername=root dbpassword=root
+    vault kv put secret/vaultdemo2/test demo.username=root demo.password=demovault demo.url=notyetset dbusername=root dbpassword=root
 
 
 NB : In production use a limited token (non-root) to get secret that you need at runtime (you can use one shot token for this)
@@ -50,3 +50,5 @@ Get secret with curl command
 https://medium.com/@Ankitthakur/spring-boot-spring-vault-e9e973a17036
 
 https://examples.javacodegeeks.com/an-intro-to-spring-cloud-vault/
+
+https://www.it-swarm-fr.com/fr/java/spring-boot-comment-masquer-les-mots-de-passe-dans-le-fichier-de-proprietes/826180111/
