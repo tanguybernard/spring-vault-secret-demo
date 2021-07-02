@@ -5,9 +5,5 @@ import org.springframework.vault.annotation.VaultPropertySource
 
 @Configuration
 @VaultPropertySource(
-    "secret/vaultdemo2/test", propertyNamePrefix = "vault.general.")
-class ConfigVaultGeneralSecret {
-
-
-
-}
+    "secret/general/test", propertyNamePrefix = "vault.general.")
+class ConfigVaultGeneralSecret

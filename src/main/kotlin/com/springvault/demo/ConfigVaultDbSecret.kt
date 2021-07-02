@@ -5,9 +5,6 @@ import org.springframework.vault.annotation.VaultPropertySource
 
 @Configuration
 @VaultPropertySource(
-    "secret/db/preprod", propertyNamePrefix = "db.preprod.")
-class ConfigVaultDbSecret {
-
-
-
-}
+    "secret/db/preprod", propertyNamePrefix = "db.preprod."
+)
+class ConfigVaultDbSecret

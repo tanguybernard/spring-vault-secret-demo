@@ -15,9 +15,6 @@ class VaultController() {
     @Autowired
     private val userService: UserService? = null
 
-
-    var name = "World"
-
     @Value("\${server.port}")
     private val port: Int? = null
 
@@ -26,7 +23,7 @@ class VaultController() {
     @GetMapping("user/{userId}")
     fun user(@PathVariable userId: Int) : String {
         val existUser: User = userService!!.getUser(userId)
-        return existUser.firstName!!
+        return "${existUser.firstName!!} ${existUser.lastName!!}"
 
     }
 

@@ -11,16 +11,19 @@
 
     vault login vault-plaintext-root-token
 
-    vault kv put secret/vaultdemo2/test demo.username=root demo.password=demovault demo.url=notyetset dbusername=root dbpassword=root
+    vault kv put secret/general/test demo.username=root demo.password=demovault demo.url=notyetset
 
+    vault kv put secret/db/preprod login=toto
 
-NB : In production use a limited token (non-root) to get secret that you need at runtime (you can use one shot token for this)
+NB : In production use a limited token (non-root) to get secret that you need at runtime (you can limit usage of token for example)
 
-Ex (Token created for 10min and limites to one used)
+Ex (Token created for 10min and limit usage)
 
-    vault token create -limit=1
+    vault token create -use-limit=3
 
 _-use-limit_ (int: 0) - Number of times this token can be used. After the last use, the token is automatically revoked. By default, tokens can be used an unlimited number of times until their expiration.
+
+NB : Spring Vault use token to check settings and for each route declared. So if you have 2 routes, limit the usage of this token to 3 for example.
 
 Credits : https://www.vaultproject.io/docs/commands/token/create#use-limit
 
@@ -32,7 +35,7 @@ Credits : https://www.vaultproject.io/docs/commands/token/create#use-limit
 
     CREATE TABLE users ( id smallint unsigned not null auto_increment, first_name varchar(20), last_name varchar(20), constraint pk_example primary key (id) );
     
-    INSERT INTO users ( first_name, last_name ) VALUES ( 'John', 'Doeremifasollasi' );
+    INSERT INTO users ( first_name, last_name ) VALUES ( 'John', 'DoReMiFaSolLaSi' );
 
 ### 4) Launch Springboot app with vault token as environment variable
 

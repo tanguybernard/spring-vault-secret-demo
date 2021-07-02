@@ -22,18 +22,18 @@ class DemoApplication : CommandLineRunner {
     @Value("\${db.preprod.login}")
     var loginPreprod: String? = null
 
-    // inject the actual values
-    @Value("\${vault.general.demo.username}")
-    private val username: String? = null
-
     @Value("\${vault.general.demo.password}")
     private val password: String? = null
+
+    @Value("\${vault.general.demo.url}")
+    private val url: String? = null
 
     @PostConstruct
     fun postConstruct() {
         println("##########################")
         println(dbusername)
-        println(username)
+        println(password)
+        println(url)
         println(loginPreprod)
 
         println("##########################")
