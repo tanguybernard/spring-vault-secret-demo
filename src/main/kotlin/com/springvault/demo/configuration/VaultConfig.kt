@@ -1,4 +1,4 @@
-package com.springvault.demo
+package com.springvault.demo.configuration
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.vault.authentication.ClientAuthentication

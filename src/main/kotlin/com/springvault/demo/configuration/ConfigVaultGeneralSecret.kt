@@ -1,9 +1,9 @@
-package com.springvault.demo
+package com.springvault.demo.configuration
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.vault.annotation.VaultPropertySource
 
 @Configuration
 @VaultPropertySource(
-    "secret/general/test", propertyNamePrefix = "vault.general.")
+    "secret/general", propertyNamePrefix = "vault.general.")
 class ConfigVaultGeneralSecret

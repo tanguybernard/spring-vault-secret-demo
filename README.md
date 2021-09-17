@@ -11,9 +11,9 @@
 
     vault login vault-plaintext-root-token
 
-    vault kv put secret/general/test demo.username=root demo.password=demovault demo.url=notyetset
+    vault kv put secret/db/test demo.username=root demo.password=mySuperPassword1234!
 
-    vault kv put secret/db/preprod login=toto
+    vault kv put secret/general login=toto aws_preprod_key=azertyYolo1234 url=https://github.com/tanguybernard/spring-vault-secret-demo
 
 NB : In production use a limited token (non-root) to get secret that you need at runtime (you can limit usage of token for example)
 
@@ -27,17 +27,7 @@ NB : Spring Vault use token to check settings and for each route declared. So if
 
 Credits : https://www.vaultproject.io/docs/commands/token/create#use-limit
 
-
-
-### 3) Into mysql container
-
-    create database dbtest;
-
-    CREATE TABLE users ( id smallint unsigned not null auto_increment, first_name varchar(20), last_name varchar(20), constraint pk_example primary key (id) );
-    
-    INSERT INTO users ( first_name, last_name ) VALUES ( 'John', 'DoReMiFaSolLaSi' );
-
-### 4) Launch Springboot app with vault token as environment variable
+### 3) Launch Springboot app with vault token as environment variable
 
     SPRING_CLOUD_VAULT_TOKEN=vault-plaintext-root-token
 

@@ -13,9 +13,12 @@ services:
       - IPC_LOCK
 
   db-test-spring:
-    image: mysql
+    image: mysql:8.0.26
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: mySuperPassword1234!
       MYSQL_DATABASE: test_db
     ports:
       - "3307:3306"
+    volumes:
+      - "./scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./scripts/data.sql:/docker-entrypoint-initdb.d/2.sql"

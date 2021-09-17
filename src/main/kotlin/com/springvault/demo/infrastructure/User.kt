@@ -1,4 +1,4 @@
-package com.springvault.demo.model
+package com.springvault.demo.infrastructure
 
 import javax.persistence.Column
 import javax.persistence.Entity

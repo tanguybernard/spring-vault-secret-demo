@@ -1,9 +1,8 @@
-package com.springvault.demo.controller
+package com.springvault.demo.infrastructure
 
 
 
-import com.springvault.demo.model.User
-import com.springvault.demo.service.UserService
+import com.springvault.demo.application.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.*

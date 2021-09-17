@@ -1,8 +1,8 @@
-package com.springvault.demo.service
+package com.springvault.demo.application
 
 
-import com.springvault.demo.model.User
-import com.springvault.demo.repository.UserRepository
+import com.springvault.demo.infrastructure.User
+import com.springvault.demo.infrastructure.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional

@@ -1,14 +1,10 @@
 package com.springvault.demo
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import javax.annotation.PostConstruct
-
-
-
 
 @SpringBootApplication
 class DemoApplication : CommandLineRunner {
@@ -19,13 +15,13 @@ class DemoApplication : CommandLineRunner {
     @Value("\${spring.datasource.username}")
     var dbusername: String? = null
 
-    @Value("\${db.preprod.login}")
-    var loginPreprod: String? = null
+    @Value("\${vault.general.login}")
+    var login: String? = null
 
-    @Value("\${vault.general.demo.password}")
+    @Value("\${db.demo.password}")
     private val password: String? = null
 
-    @Value("\${vault.general.demo.url}")
+    @Value("\${vault.general.url}")
     private val url: String? = null
 
     @PostConstruct
@@ -34,8 +30,7 @@ class DemoApplication : CommandLineRunner {
         println(dbusername)
         println(password)
         println(url)
-        println(loginPreprod)
-
+        println(login)
         println("##########################")
     }
 }
