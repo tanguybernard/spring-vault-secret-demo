@@ -9,6 +9,8 @@
 
 ### 2) Into docker container
 
+#### Create secret
+
     vault login vault-plaintext-root-token
 
     vault kv put secret/db/test demo.username=root demo.password=mySuperPassword1234!
@@ -26,6 +28,26 @@ _-use-limit_ (int: 0) - Number of times this token can be used. After the last u
 NB : Spring Vault use token to check settings and for each route declared. So if you have 2 routes, limit the usage of this token to 3 for example.
 
 Credits : https://www.vaultproject.io/docs/commands/token/create#use-limit
+
+
+#### Policy
+
+KV v2 backend for secret storage, the policy structures are slightly different.
+I ended up having to specify secret/metadata/ for listing permissions and secret/data/ for create/update/read
+
+e.g :
+
+    path "secret/*" {
+    capabilities = ["list",]
+    }
+    
+    path "secret/data/db/*" {
+    capabilities = ["read", "list"]
+    }
+
+
+source: https://serverfault.com/questions/978445/hashicorp-vault-policy-restricting-one-specific-sub-node-in-a-path
+
 
 ### 3) Launch Springboot app with vault token as environment variable
 
