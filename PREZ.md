@@ -1,5 +1,12 @@
 # PRESENTATION
 
+## Services
+
+- Secret
+- Audit
+- Storage
+- Auth Backend
+
 ## How it works ?
 
 ![Secrets engine](vault-secrets-engine-shema.png)
