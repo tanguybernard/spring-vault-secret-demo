@@ -2,7 +2,14 @@
 
 ## How it works ?
 
-https://learn.hashicorp.com/tutorials/vault/getting-started-secrets-engines
+![Secrets engine](vault-secrets-engine-shema.png)
+
+
+source : https://learn.hashicorp.com/tutorials/vault/getting-started-secrets-engines
+
+## Video (admin part)
+
+https://www.youtube.com/watch?v=jlQ1yvMET0o&t=779s
 
 ## Authentication
 
@@ -54,11 +61,10 @@ NB: The "application" is injected as the spring.application.name in the SpringAp
 
 Ex Config:
 
-
     spring.cloud.vault:
         generic:
             enabled: true
-            backend: deployments
+            backend: secret
             profile-separator: '/'
             default-context: prod
             application-name: my-app
@@ -66,5 +72,5 @@ Ex Config:
 
 Result of search :
 
-    deployments/my-app
-    deployments/prod/<activeProfile>
+    secret/my-app
+    secret/prod/<activeProfile>
