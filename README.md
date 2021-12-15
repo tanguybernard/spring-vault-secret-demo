@@ -53,6 +53,40 @@ source: https://serverfault.com/questions/978445/hashicorp-vault-policy-restrict
 
     SPRING_CLOUD_VAULT_TOKEN=vault-plaintext-root-token
 
+
+### 4) 
+
+Enable plugin database
+
+    vault secrets enable database
+
+Configure
+
+    vault write database/config/my-mysql-database \
+    plugin_name=mysql-database-plugin \
+    connection_url="{{username}}:{{password}}@tcp(db-test-spring:3306)/" \
+    allowed_roles="my-role" \
+    username="root" \
+    password="mySuperPassword1234!"
+
+Create role
+
+    vault write database/roles/my-role \
+    db_name=my-mysql-database \
+    creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    default_ttl="1h" \
+    max_ttl="24h"
+
+
+Get credentials
+
+    vault read database/creds/my-role
+
+Try:
+
+    update users set first_name=Tom where id=1;
+
+
 ## Tips and Tricks
 
 Get secret with curl command
